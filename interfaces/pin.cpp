@@ -42,20 +42,20 @@ static void gpio_clk_en (  const GPIO_TypeDef* GPIOx, const uint32_t remap_mode 
 }
 
 void pin::init ( void ) const {
-    gpio_clk_en( this->GPIOx, this->remap_mode );
-    HAL_GPIO_Init( this->GPIOx, ( GPIO_InitTypeDef * )this->cfg );
+    gpio_clk_en( this->cfg->GPIOx, this->cfg->remap_mode );
+    HAL_GPIO_Init( this->cfg->GPIOx, ( GPIO_InitTypeDef * )this->cfg );
 }
 
 void pin::set ( void ) const {
-    HAL_GPIO_WritePin ( this->GPIOx, ( uint16_t )this->cfg->Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin ( this->cfg->GPIOx, ( uint16_t )this->cfg->init.Pin, GPIO_PIN_SET);
 }
 
 void pin::reset ( void ) const {
-    HAL_GPIO_WritePin ( this->GPIOx, ( uint16_t )this->cfg->Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin ( this->cfg->GPIOx, ( uint16_t )this->cfg->init.Pin, GPIO_PIN_RESET);
 }
 
 void pin::toggle ( void ) const {
-    HAL_GPIO_TogglePin ( this->GPIOx, ( uint16_t )this->cfg->Pin );
+    HAL_GPIO_TogglePin ( this->cfg->GPIOx, ( uint16_t )this->cfg->init.Pin );
 }
 
 void pin::set ( bool state ) const {
@@ -75,6 +75,6 @@ void pin::set ( uint8_t state ) const {
 }
 
 bool pin::read ( void ) const {
-    return HAL_GPIO_ReadPin ( this->GPIOx, ( uint16_t )this->cfg->Pin );
+    return HAL_GPIO_ReadPin ( this->cfg->GPIOx, ( uint16_t )this->cfg->init.Pin );
 }
 
