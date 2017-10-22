@@ -46,7 +46,6 @@ void pin::init ( void ) const {
     HAL_GPIO_Init( this->GPIOx, ( GPIO_InitTypeDef * )this->cfg );
 }
 
-
 void pin::set ( void ) const {
     HAL_GPIO_WritePin ( this->GPIOx, ( uint16_t )this->cfg->Pin, GPIO_PIN_SET);
 }
