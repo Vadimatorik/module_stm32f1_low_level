@@ -201,6 +201,7 @@ typedef struct
 
   __IO uint32_t              EventCount;     /*!< I2C Event counter                        */
 	
+  void*                      obj;
 }I2C_HandleTypeDef;
 
 /**
