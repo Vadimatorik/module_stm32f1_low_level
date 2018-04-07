@@ -188,6 +188,8 @@ typedef struct
                                                        This parameter can be a value of @ref HAL_UART_StateTypeDef */
 
   __IO uint32_t                 ErrorCode;        /*!< UART Error code                    */
+
+  void*							obj;				/// Для связи с CPP интерфейсом.
 }UART_HandleTypeDef;
 
 /**

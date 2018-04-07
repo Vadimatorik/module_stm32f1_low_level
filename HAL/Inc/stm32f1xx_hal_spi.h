@@ -151,6 +151,7 @@ typedef struct __SPI_HandleTypeDef
 
   __IO uint32_t              ErrorCode;    /*!< SPI Error code */
 
+  void*						obj;					/// Для связи с CPP интерфейсом.
 }SPI_HandleTypeDef;
 
 /**
