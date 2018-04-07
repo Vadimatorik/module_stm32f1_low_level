@@ -37,5 +37,8 @@ build/obj/module_stm32f1_low_level/%.o:	module_stm32f1_low_level/%.s
 
 
 # Добавляем к общим переменным проекта.
+
+PATH_USER_MC_LOW_LAVEL	+= $(MODULE_STM32F1_LOW_LEVEL_PATH)
+
 PROJECT_PATH			+= $(MODULE_STM32F1_LOW_LEVEL_PATH)
 PROJECT_OBJ_FILE		+= $(MODULE_STM32F1_LOW_LEVEL_OBJ_FILE)
